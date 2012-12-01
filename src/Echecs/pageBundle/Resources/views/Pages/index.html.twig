@@ -1,0 +1,33 @@
+{% extends 'EchecspageBundle::layout.html.twig' %}
+
+{% block titre %}Echecs de Montpellier - {{page.nomPage}}{% endblock %}
+
+{% block navigation %}
+
+    {% for unepage in navigation %}
+
+        {% if unepage.nomPage == page.nomPage %}
+            <li class="current"><a href="{{ path('_index',{name:unepage.nomPage}) }}">{{unepage.nomPage}}</a></li>
+        {% else %}
+            <li><a href="{{ path('_index',{name:unepage.nomPage}) }}">{{unepage.nomPage}}</a></li>
+        {% endif %}
+    {% endfor %}
+            
+{% endblock %}
+
+{% block sidebar %}
+
+    {% for unecat in categories %}
+
+        <li><a href="{{ path('_articles_cat',{name:unecat.nom}) }}">{{unecat.nom}}</a></li>
+      
+    {% endfor %}
+
+{% endblock %}
+
+
+{% block content %}
+    {{ page.contenu|raw }}
+{% endblock %}
+
+{% block entryTitle %}{{page.nomPage}}{% endblock %}

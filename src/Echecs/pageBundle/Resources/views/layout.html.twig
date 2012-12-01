@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+{% block javascripts %}{% endblock %}
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block titre %}Bienvenue{% endblock %}</title>
+        {% block stylesheets %}
+        <link rel="stylesheet" media="screen,projection" type="text/css" href="{{ asset('bundles/echecs/css/style.css') }}" />
+        
+        <script type="text/javascript" src="{{ asset('bundles/echecs/js/jquery-1.7.2.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/echecs/js/script.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/echecs/js/modernizr-2.6.1.min.js') }}"></script>
+        
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+    
+          
+    
+        <header id="master-header" class="clearfix" role="banner">
+
+		<hgroup>
+			<a href="{{ path('_index',{name:'Accueil'}) }}" title="Your Site Name"><img src="http://ladiagonaledusud.free.fr/fresh/templates/beez/images/ECM-RVB_249x97.png"/></a>
+			<h2 id="site-description">Le grand club de la ville bleue !</h2>
+		</hgroup>
+
+	</header>
+	
+           <nav class="main-navigation clearfix span12" role="navigation">
+           
+                <ul>
+		  {% block navigation %}{% endblock %}
+		</ul>
+                      
+           </nav>
+       
+       
+       <div id="content">
+        
+
+            <header class="entry-header">
+
+                <h1 class="entry-title">{% block entryTitle %}{% endblock %}</h1>
+
+             </header> 
+
+             <div id="hentry">
+                     {% block content %}{% endblock %}	
+             </div>
+	
+        </div>
+        <div id="sidebar">
+            <ul>
+               {% block sidebar %}{% endblock %}	
+            </ul>
+        </div>
+
+        <div id="footer" role="contentinfo">
+	Copyrights C.Maibeche & D.Dominguez 
+        </div>
+
+</body>
+</html>

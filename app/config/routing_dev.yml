@@ -1,0 +1,40 @@
+
+_demo_secured:
+    resource: "@AcmeDemoBundle/Controller/SecuredController.php"
+    type:     annotation
+
+_demo:
+    resource: "@AcmeDemoBundle/Controller/DemoController.php"
+    type:     annotation
+    prefix:   /demo
+
+_wdt:
+    resource: "@WebProfilerBundle/Resources/config/routing/wdt.xml"
+    prefix:   /_wdt
+
+_profiler:
+    resource: "@WebProfilerBundle/Resources/config/routing/profiler.xml"
+    prefix:   /_profiler
+
+_configurator:
+    resource: "@SensioDistributionBundle/Resources/config/routing/webconfigurator.xml"
+    prefix:   /_configurator
+
+_main:
+    resource: routing.yml
+
+_index:
+    pattern:  page/{name}
+    defaults: { _controller: EchecspageBundle:Page:index, name :Accueil}
+
+_articles_cat:
+    pattern:  /categorie/{name}
+    defaults: { _controller: EchecspageBundle:Article:articlesByCat}
+
+_detail_article:
+    pattern:  /article/{id}
+    defaults: { _controller: EchecspageBundle:Article:show}
+    
+_create_article:
+    pattern:  /ajouter-article/
+    defaults: { _controller: EchecspageBundle:Article:create}

@@ -1,0 +1,9 @@
+echecspage:
+    resource: "@EchecspageBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+
+_index:
+    pattern:  /
+    defaults: { _controller: EchecspageBundle:Default:index }
